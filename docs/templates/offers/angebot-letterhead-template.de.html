@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Angebot {{angebotsnummer}} - Spec Kitty</title>
+    <style>
+      @font-face {
+        font-family: "Falling Sky";
+        src: url("../../../packages/tokens/fonts/FallingSkyBold-zemL.otf") format("opentype");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Swansea";
+        src: url("../../../packages/tokens/fonts/Swansea-q3pd.ttf") format("truetype");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Swansea";
+        src: url("../../../packages/tokens/fonts/SwanseaBold-D0ox.ttf") format("truetype");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --ink: #1a1a14;
+        --muted: #5c5c52;
+        --subtle: #8a8a7e;
+        --page: #f8f5ec;
+        --card: #ffffff;
+        --border: #d6cfb9;
+        --border-soft: #eae4d2;
+        --gold: #f5c518;
+        --gold-soft: #fff6d9;
+        --blue-soft: #e4edf8;
+      }
+
+      @page {
+        size: A4;
+        margin: 14mm 16mm 17mm;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--page);
+        color: var(--ink);
+        font-family: "Swansea", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 10.2pt;
+        line-height: 1.42;
+      }
+
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto;
+        background: var(--card);
+        padding: 15mm 17mm 17mm;
+        position: relative;
+        box-shadow: 0 20px 70px rgba(26, 26, 20, 0.14);
+      }
+
+      .letterhead {
+        display: grid;
+        grid-template-columns: 1fr 68mm;
+        gap: 16mm;
+        align-items: start;
+        padding-bottom: 9mm;
+        border-bottom: 2px solid var(--ink);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 4mm;
+      }
+
+      .brand img {
+        width: 13mm;
+        height: 13mm;
+        object-fit: contain;
+      }
+
+      .brand-name {
+        font-family: "Falling Sky", ui-sans-serif, system-ui, sans-serif;
+        font-size: 22pt;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .brand-copy {
+        margin-top: 2mm;
+        color: var(--muted);
+        font-size: 9pt;
+      }
+
+      .sender {
+        margin-top: 7mm;
+        color: var(--muted);
+        font-size: 8.4pt;
+        line-height: 1.35;
+      }
+
+      .meta-card {
+        border-left: 6px solid var(--gold);
+        background: var(--gold-soft);
+        padding: 4mm;
+        font-size: 8.7pt;
+      }
+
+      .meta-row {
+        display: grid;
+        grid-template-columns: 27mm 1fr;
+        gap: 4mm;
+        margin-bottom: 1.5mm;
+      }
+
+      .meta-row:last-child {
+        margin-bottom: 0;
+      }
+
+      .label {
+        color: var(--muted);
+        font-weight: 700;
+      }
+
+      .address-grid {
+        display: grid;
+        grid-template-columns: 1fr 68mm;
+        gap: 16mm;
+        margin-top: 11mm;
+        align-items: start;
+      }
+
+      .recipient {
+        min-height: 34mm;
+        font-size: 10.5pt;
+        font-style: normal;
+        line-height: 1.5;
+      }
+
+      .supplier-box {
+        border: 1px solid var(--border);
+        border-radius: 3mm;
+        padding: 4mm;
+        font-size: 8.7pt;
+        line-height: 1.38;
+      }
+
+      .supplier-box strong {
+        display: block;
+        margin-bottom: 1mm;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Falling Sky", ui-sans-serif, system-ui, sans-serif;
+        line-height: 1.15;
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 24pt;
+        margin-top: 8mm;
+        margin-bottom: 4mm;
+      }
+
+      .subject {
+        max-width: 142mm;
+        color: var(--muted);
+        font-size: 10.5pt;
+        margin-bottom: 7mm;
+      }
+
+      h2 {
+        font-size: 13.4pt;
+        margin-top: 8mm;
+        margin-bottom: 2.5mm;
+        padding-top: 3.5mm;
+        border-top: 1px solid var(--border);
+      }
+
+      h3 {
+        font-size: 10.8pt;
+        margin-top: 4mm;
+        margin-bottom: 1.5mm;
+      }
+
+      p {
+        margin: 0 0 2.8mm;
+      }
+
+      ul {
+        margin: 2.2mm 0 3.5mm 5mm;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 1.4mm;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 2.5mm 0 4mm;
+        break-inside: avoid;
+      }
+
+      th,
+      td {
+        border-bottom: 1px solid var(--border-soft);
+        padding: 2.4mm 2mm;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        color: var(--muted);
+        font-size: 8.4pt;
+        font-weight: 700;
+        background: var(--blue-soft);
+      }
+
+      .num {
+        text-align: right;
+        white-space: nowrap;
+      }
+
+      .scope-table td:first-child {
+        width: 11mm;
+        color: var(--muted);
+        font-weight: 700;
+      }
+
+      .price-table {
+        max-width: 104mm;
+        margin-left: auto;
+      }
+
+      .price-table .total td {
+        border-top: 2px solid var(--ink);
+        border-bottom: 2px solid var(--ink);
+        font-weight: 700;
+        background: var(--gold-soft);
+      }
+
+      .acceptance {
+        break-inside: avoid;
+      }
+
+      .signature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 7mm;
+        margin-top: 10mm;
+      }
+
+      .signature-line {
+        border-top: 1px solid var(--border);
+        padding-top: 2mm;
+        color: var(--muted);
+        min-height: 12mm;
+        font-size: 8.7pt;
+      }
+
+      .footer {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr 1fr;
+        gap: 6mm;
+        margin-top: 9mm;
+        border-top: 1px solid var(--border);
+        padding-top: 3mm;
+        color: var(--subtle);
+        font-size: 7.6pt;
+        line-height: 1.35;
+      }
+
+      .footer strong {
+        color: var(--muted);
+      }
+
+      .placeholder-note {
+        margin-top: 4mm;
+        color: var(--muted);
+        font-size: 8.5pt;
+      }
+
+      @media print {
+        body {
+          background: #ffffff;
+        }
+
+        .page {
+          width: auto;
+          min-height: auto;
+          margin: 0;
+          padding: 0;
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="letterhead">
+        <div>
+          <div class="brand">
+            <img src="../../../packages/tokens/assets/logo.webp" alt="Spec Kitty logo">
+            <div>
+              <div class="brand-name">Spec Kitty</div>
+              <div class="brand-copy">AI-assisted software delivery, governed and reviewable.</div>
+            </div>
+          </div>
+          <div class="sender">
+            Spec Kitty - Robert Douglass - {{strasse_hausnummer}} - {{plz_ort}} - {{land}}
+          </div>
+        </div>
+
+        <aside class="meta-card" aria-label="Angebotsdaten">
+          <div class="meta-row"><span class="label">Angebot</span><span>{{angebotsnummer}}</span></div>
+          <div class="meta-row"><span class="label">Datum</span><span>{{angebotsdatum}}</span></div>
+          <div class="meta-row"><span class="label">Gültig bis</span><span>{{gueltig_bis}}</span></div>
+          <div class="meta-row"><span class="label">Leistung</span><span>{{leistungszeitraum}}</span></div>
+          <div class="meta-row"><span class="label">Kunde</span><span>{{kunde_unternehmen}}</span></div>
+        </aside>
+      </header>
+
+      <section class="address-grid">
+        <address class="recipient">
+          {{kunde_unternehmen}}<br>
+          {{kunde_abteilung_optional}}<br>
+          {{kunde_kontakt}}<br>
+          {{kunde_strasse_hausnummer}}<br>
+          {{kunde_plz_ort}}<br>
+          {{kunde_land}}
+        </address>
+
+        <aside class="supplier-box">
+          <strong>Anbieter</strong>
+          Spec Kitty<br>
+          Robert Douglass<br>
+          {{rechtstraeger}}<br>
+          contact@spec-kitty.ai<br>
+          training@spec-kitty.ai<br>
+          https://spec-kitty.ai<br>
+          <br>
+          <span class="label">Steuerdaten</span><br>
+          {{ust_id_oder_steuernummer}}
+        </aside>
+      </section>
+
+      <h1>Angebot</h1>
+      <p class="subject"><strong>{{angebotstitel}}</strong><br>{{kurzbeschreibung}}</p>
+
+      <h2>1. Ziel & Ergebnis</h2>
+      <p>
+        Ziel ist, dass {{kunde_kurzname}} KI-gestützte Softwareentwicklung systematisch,
+        nachvollziehbar und governed einsetzen kann. Der Fokus liegt auf einem reproduzierbaren
+        Arbeitsprozess mit klaren Rollen, dokumentierten Entscheidungen, überprüfbaren Ergebnissen
+        und sinnvollen Leitplanken.
+      </p>
+      <ul>
+        <li>Gemeinsames Verständnis im relevanten Teilnehmerkreis, was KI-gestützte Entwicklung leisten kann und welche Grenzen bestehen.</li>
+        <li>Praktische Erfahrung für {{zielgruppe_kerngruppe}} inklusive Setup, Workflow und Auswertung.</li>
+        <li>Konkrete nächste Schritte für Pilot, Rollen, Standards und interne Multiplikation.</li>
+        <li>Kurze schriftliche Zusammenfassung der Empfehlungen und offenen Entscheidungen.</li>
+      </ul>
+
+      <h2>2. Leistungsumfang</h2>
+      <table class="scope-table">
+        <thead>
+          <tr>
+            <th>Pos.</th>
+            <th>Leistung</th>
+            <th>Umfang</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>{{session_1_name}}</td>
+            <td>{{session_1_datum_zeit}}, {{session_1_dauer}}, {{session_1_format}}</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>{{session_2_name}}</td>
+            <td>{{session_2_datum_zeit}}, {{session_2_dauer}}, {{session_2_format}}</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Vorbereitung und Nachbereitung</td>
+            <td>Zielabgleich, Vorbereitungsliste, kurze Ergebniszusammenfassung</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Reise / Nebenkosten</td>
+            <td>{{reisekostenregelung}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>{{session_1_name}}</h3>
+      <ul>
+        <li>Einordnung: KI in der Softwareentwicklung, Chancen, Risiken und typische Anti-Patterns.</li>
+        <li>Governance-Perspektive: Konsistenz, Wartbarkeit, Reviewbarkeit und Standards.</li>
+        <li>Kurz-Demo: spec-driven und agenten-gestütztes Arbeiten mit Spec Kitty und gängigen Tools.</li>
+        <li>Q&A und Abgleich mit internen Anforderungen.</li>
+      </ul>
+
+      <h3>{{session_2_name}}</h3>
+      <ul>
+        <li>Einstieg und Zielbild für den Tag.</li>
+        <li>Installations- und Setup-Check: Tooling, Accounts, Zugriff, Repo/Projekt.</li>
+        <li>Geführter Hello-World-Durchlauf mit kontrolliertem Workflow.</li>
+        <li>Arbeit an einem konkreten Use-Case oder Ticket mit klaren Erfolgskriterien.</li>
+        <li>Gemeinsame Auswertung: Ergebnisse, Risiken, Standards und nächste Schritte.</li>
+      </ul>
+
+      <h2>3. Voraussetzungen und Mitwirkung</h2>
+      <ul>
+        <li>Teilnehmer bringen Laptop und Zugriff auf ein geeignetes Repo oder Projekt mit.</li>
+        <li>{{kunde_kurzname}} benennt vorab 1-2 Kandidaten für Use-Case oder Ticket inklusive Definition of Done.</li>
+        <li>Tooling, Accounts und Zugriffsrechte werden vorab geprüft.</li>
+        <li>Für Vor-Ort-Termine stellt {{kunde_kurzname}} Raum, Bildschirm/Beamer, stabile Internetverbindung und ggf. Whiteboard bereit.</li>
+      </ul>
+
+      <h2>4. Vergütung</h2>
+      <table class="price-table">
+        <tbody>
+          <tr>
+            <td>Pauschalpreis netto</td>
+            <td class="num">{{preis_netto}} EUR</td>
+          </tr>
+          <tr>
+            <td>Umsatzsteuer {{ust_satz}}</td>
+            <td class="num">{{ust_betrag}} EUR</td>
+          </tr>
+          <tr class="total">
+            <td>Gesamtbetrag brutto</td>
+            <td class="num">{{preis_brutto}} EUR</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Der Preis enthält Vorbereitung, Durchführung der beschriebenen Leistungen, kurze
+        schriftliche Zusammenfassung sowie {{reisekostenregelung}}.
+      </p>
+
+      <h2>5. Abrechnung, Gültigkeit und Annahme</h2>
+      <p>
+        Die Abrechnung erfolgt nach Durchführung per Rechnung. Zahlungsziel:
+        {{zahlungsziel}} Tage ab Rechnungsdatum ohne Abzug. Dieses Angebot ist gültig bis
+        {{gueltig_bis}}. Die Annahme kann per E-Mail mit Bezug auf Angebotsnummer
+        {{angebotsnummer}} erfolgen, sofern keine Einkaufs- oder Vertragsprozesse erforderlich sind.
+      </p>
+
+      <section class="acceptance">
+        <h2>Annahme durch den Kunden</h2>
+        <div class="signature-grid">
+          <div class="signature-line">Name</div>
+          <div class="signature-line">Datum</div>
+          <div class="signature-line">Unterschrift</div>
+        </div>
+      </section>
+
+      <p class="placeholder-note">
+        Hinweis: Platzhalter in doppelten geschweiften Klammern sind vor Versand zu ersetzen.
+        Rechtsträger, Adresse, Steuerdaten und Bankverbindung sind aus der jeweils aktuellen
+        Finanz-/Rechtsquelle zu übernehmen.
+      </p>
+
+      <footer class="footer">
+        <div><strong>Spec Kitty</strong><br>Robert Douglass<br>{{rechtstraeger}}<br>{{strasse_hausnummer}} - {{plz_ort}}</div>
+        <div><strong>Kontakt</strong><br>contact@spec-kitty.ai<br>training@spec-kitty.ai<br>https://spec-kitty.ai</div>
+        <div><strong>Rechnung</strong><br>{{ust_id_oder_steuernummer}}<br>{{bankverbindung_optional}}</div>
+      </footer>
+    </main>
+  </body>
+</html>

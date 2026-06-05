@@ -16,6 +16,7 @@ for teams building Spec Kitty-branded interfaces.
 - [Using tokens](using-tokens.md) — install, load, and apply `--sk-*` custom properties
 - [Using components](using-components.md) — import and render each component category
 - [Brand guidelines](brand-guidelines.md) — voice, colour, typography, iconography
+- [Offer templates](../templates/offers/README.md) — German and English proposal templates
 - [Changelog](changelog.md) — design system release history
 
 ## Live catalog

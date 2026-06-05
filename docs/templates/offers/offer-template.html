@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spec Kitty offer template</title>
+    <style>
+      @font-face {
+        font-family: "Falling Sky";
+        src: url("../../../packages/tokens/fonts/FallingSkyBold-zemL.otf") format("opentype");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Swansea";
+        src: url("../../../packages/tokens/fonts/Swansea-q3pd.ttf") format("truetype");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Swansea";
+        src: url("../../../packages/tokens/fonts/SwanseaBold-D0ox.ttf") format("truetype");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --sk-ink: #1a1a14;
+        --sk-muted: #5c5c52;
+        --sk-subtle: #8a8a7e;
+        --sk-page: #f8f5ec;
+        --sk-card: #ffffff;
+        --sk-border: #d6cfb9;
+        --sk-gold: #f5c518;
+        --sk-gold-soft: #fff6d9;
+        --sk-blue-soft: #e4edf8;
+        --sk-green-soft: #e8f4e8;
+        --sk-lilac-soft: #f0eaf8;
+      }
+
+      @page {
+        size: A4;
+        margin: 18mm;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--sk-page);
+        color: var(--sk-ink);
+        font-family: "Swansea", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 10.5pt;
+        line-height: 1.48;
+      }
+
+      .document {
+        max-width: 210mm;
+        margin: 0 auto;
+        background: var(--sk-card);
+        min-height: 100vh;
+        padding: 20mm;
+        box-shadow: 0 20px 60px rgba(26, 26, 20, 0.12);
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        align-items: start;
+        border-bottom: 2px solid var(--sk-ink);
+        padding-bottom: 18px;
+        margin-bottom: 28px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand img {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+      }
+
+      .brand-name {
+        font-family: "Falling Sky", ui-sans-serif, system-ui, sans-serif;
+        font-size: 22pt;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .brand-subtitle {
+        margin-top: 4px;
+        color: var(--sk-muted);
+        font-size: 9.5pt;
+      }
+
+      .meta {
+        min-width: 62mm;
+        border-left: 6px solid var(--sk-gold);
+        background: var(--sk-gold-soft);
+        padding: 12px 14px;
+        font-size: 9pt;
+      }
+
+      .meta div {
+        display: grid;
+        grid-template-columns: 26mm 1fr;
+        gap: 8px;
+      }
+
+      .label {
+        color: var(--sk-muted);
+        font-weight: 700;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Falling Sky", ui-sans-serif, system-ui, sans-serif;
+        line-height: 1.16;
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 28pt;
+        margin-bottom: 18px;
+      }
+
+      h2 {
+        font-size: 16pt;
+        margin-top: 24px;
+        margin-bottom: 8px;
+        padding-top: 10px;
+        border-top: 1px solid var(--sk-border);
+      }
+
+      h3 {
+        font-size: 12.5pt;
+        margin-top: 16px;
+        margin-bottom: 6px;
+      }
+
+      p {
+        margin: 0 0 9px;
+      }
+
+      ul {
+        margin: 8px 0 12px 18px;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 5px;
+      }
+
+      .intro-grid {
+        display: grid;
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 18px;
+        margin-bottom: 22px;
+      }
+
+      .panel {
+        border: 1px solid var(--sk-border);
+        border-radius: 12px;
+        padding: 14px;
+        background: var(--sk-card);
+      }
+
+      .panel.blue {
+        background: var(--sk-blue-soft);
+      }
+
+      .panel.green {
+        background: var(--sk-green-soft);
+      }
+
+      .panel.lilac {
+        background: var(--sk-lilac-soft);
+      }
+
+      .supplier {
+        font-size: 9.3pt;
+      }
+
+      .session {
+        break-inside: avoid;
+        border-left: 5px solid var(--sk-gold);
+        padding: 4px 0 4px 14px;
+        margin: 12px 0 16px;
+      }
+
+      .price {
+        display: inline-block;
+        background: var(--sk-ink);
+        color: #fffaf0;
+        border-radius: 999px;
+        padding: 8px 14px;
+        font-weight: 700;
+        margin: 4px 0 10px;
+      }
+
+      .signature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 24px;
+      }
+
+      .signature-line {
+        border-top: 1px solid var(--sk-border);
+        padding-top: 6px;
+        color: var(--sk-muted);
+        min-height: 30px;
+      }
+
+      .variant + .variant {
+        page-break-before: always;
+      }
+
+      .note {
+        color: var(--sk-muted);
+        font-size: 9pt;
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+
+        .document {
+          max-width: none;
+          min-height: auto;
+          padding: 0;
+          box-shadow: none;
+        }
+
+        .variant + .variant {
+          page-break-before: always;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="document">
+      <header>
+        <div>
+          <div class="brand">
+            <img src="../../../packages/tokens/assets/logo.webp" alt="Spec Kitty logo">
+            <div>
+              <div class="brand-name">Spec Kitty</div>
+              <div class="brand-subtitle">AI-assisted software delivery, governed and reviewable.</div>
+            </div>
+          </div>
+        </div>
+        <div class="meta">
+          <div><span class="label">Offer no.</span><span>{{offer_number}}</span></div>
+          <div><span class="label">Date</span><span>{{date}}</span></div>
+          <div><span class="label">Valid until</span><span>{{valid_until}}</span></div>
+          <div><span class="label">Prepared for</span><span>{{client_company}}</span></div>
+        </div>
+      </header>
+
+      <section class="variant" lang="de">
+        <h1>Angebot: {{angebotstitel}}</h1>
+        <div class="intro-grid">
+          <div class="panel blue">
+            <p><strong>An {{kunde_unternehmen}}</strong><br>{{kunde_kontakt}}</p>
+            <p>Ziel ist, dass {{kunde_kurzname}} KI-gestützte Entwicklung systematisch, nachvollziehbar und governed einsetzen kann. Der Fokus liegt auf einem reproduzierbaren Arbeitsprozess für Planung, Umsetzung, Review und Nachvollziehbarkeit.</p>
+          </div>
+          <aside class="panel supplier">
+            <p><strong>Spec Kitty</strong><br>Robert Douglass<br>contact@spec-kitty.ai<br>training@spec-kitty.ai</p>
+            <p>https://spec-kitty.ai<br>https://docs.spec-kitty.ai</p>
+            <p class="note">{{rechtstraeger}}<br>{{adresse}}<br>{{ust_id_oder_steuernummer}}</p>
+          </aside>
+        </div>
+
+        <h2>1. Ziel & Ergebnis</h2>
+        <ul>
+          <li>Gemeinsames Verständnis, was KI-gestützte Entwicklung leisten kann und welche Leitplanken sinnvoll sind.</li>
+          <li>Hands-on-Erfahrung für {{zielgruppe_kerngruppe}} inklusive Setup, Workflow und Auswertung.</li>
+          <li>Konkrete nächste Schritte für interne Weiterführung: Rollen, Vorgehen, Standards und Pilot-Themen.</li>
+        </ul>
+
+        <h2>2. Leistungsumfang</h2>
+        <div class="session">
+          <h3>A. {{session_1_name}}</h3>
+          <p><strong>Termin:</strong> {{session_1_datum_zeit}}<br>
+          <strong>Dauer:</strong> {{session_1_dauer}}<br>
+          <strong>Format:</strong> {{session_1_format}}<br>
+          <strong>Teilnehmerkreis:</strong> {{session_1_teilnehmerkreis}}</p>
+          <ul>
+            <li>Einordnung: KI in der Softwareentwicklung, Chancen, Risiken und typische Anti-Patterns.</li>
+            <li>Governance-Perspektive: Konsistenz, Wartbarkeit, Reviewbarkeit und Standards.</li>
+            <li>Kurz-Demo: spec-driven und agenten-gestütztes Arbeiten mit Spec Kitty und gängigen Tools.</li>
+            <li>Q&A und Abgleich mit euren internen Anforderungen.</li>
+          </ul>
+        </div>
+
+        <div class="session">
+          <h3>B. {{session_2_name}}</h3>
+          <p><strong>Termin:</strong> {{session_2_datum_zeit}}<br>
+          <strong>Dauer:</strong> {{session_2_dauer}}<br>
+          <strong>Format:</strong> {{session_2_format}}<br>
+          <strong>Ideale Gruppengröße:</strong> {{session_2_gruppengroesse}}<br>
+          <strong>Empfohlene Teilnehmer:</strong> {{session_2_teilnehmerprofil}}</p>
+          <ul>
+            <li>Kurzer Einstieg und Zielbild für den Tag.</li>
+            <li>Installations- und Setup-Check: Tooling, Accounts, Zugriff, Repo/Projekt.</li>
+            <li>Geführter Hello-World-Durchlauf mit kontrolliertem Workflow.</li>
+            <li>Arbeit an einem konkreten Use-Case oder Ticket mit klaren Erfolgskriterien.</li>
+            <li>Gemeinsame Auswertung und nächste Schritte.</li>
+          </ul>
+        </div>
+
+        <h2>3. Voraussetzungen</h2>
+        <ul>
+          <li>Teilnehmer bringen Laptop und Zugriff auf ein geeignetes Repo oder Projekt mit.</li>
+          <li>{{kunde_kurzname}} benennt vorab 1-2 Kandidaten für Use-Case oder Ticket inklusive Definition of Done.</li>
+          <li>Tooling, Accounts und Zugriffsrechte werden vorab geprüft.</li>
+        </ul>
+
+        <h2>4. Preis & Abrechnung</h2>
+        <div class="price">{{preis}} EUR {{preis_zusatz}}</div>
+        <p>Enthalten sind Vorbereitung, Durchführung der beschriebenen Session(s), kurze schriftliche Zusammenfassung und {{reisekostenregelung}}.</p>
+        <p><strong>Abrechnung:</strong> nach Durchführung per Rechnung.<br>
+        <strong>Zahlungsziel:</strong> {{zahlungsziel}} Tage ab Rechnungsdatum.<br>
+        <strong>Steuern:</strong> {{steuerhinweis}}</p>
+
+        <h2>5. Nächste Schritte / Timeline</h2>
+        <ul>
+          <li>{{kunde_kontakt}} stimmt intern ab und gibt bis {{rueckmeldung_bis}} Rückmeldung.</li>
+          <li>Danach werden Termin(e), Ort, Technik, Teilnehmerkreis und Use-Case final bestätigt.</li>
+          <li>Spec Kitty sendet bei Bedarf eine kurze Vorbereitungsliste für Teilnehmer.</li>
+        </ul>
+
+        <h2>6. Annahme</h2>
+        <p>Dieses Angebot kann per E-Mail bestätigt werden. Eine kurze Antwort mit Bezug auf Angebotsnummer {{offer_number}} genügt, sofern keine Einkaufs- oder Vertragsprozesse erforderlich sind.</p>
+        <div class="signature-grid">
+          <div class="signature-line">Name</div>
+          <div class="signature-line">Datum</div>
+          <div class="signature-line">Unterschrift</div>
+        </div>
+      </section>
+
+      <section class="variant" lang="en">
+        <h1>Offer: {{offer_title}}</h1>
+        <div class="intro-grid">
+          <div class="panel blue">
+            <p><strong>Prepared for {{client_company}}</strong><br>{{client_contact}}</p>
+            <p>The goal is for {{client_short_name}} to use AI-assisted software development systematically, traceably, and with governance. The focus is a reproducible operating process for planning, implementation, review, and accountability.</p>
+          </div>
+          <aside class="panel supplier">
+            <p><strong>Spec Kitty</strong><br>Robert Douglass<br>contact@spec-kitty.ai<br>training@spec-kitty.ai</p>
+            <p>https://spec-kitty.ai<br>https://docs.spec-kitty.ai</p>
+            <p class="note">{{legal_entity}}<br>{{address}}<br>{{vat_or_tax_id}}</p>
+          </aside>
+        </div>
+
+        <h2>1. Goal & outcome</h2>
+        <ul>
+          <li>Shared understanding of what AI-assisted development can achieve and which guardrails are useful.</li>
+          <li>Hands-on experience for {{core_group_description}}, including setup, workflow, and evaluation.</li>
+          <li>Concrete next steps for internal continuation: roles, process, standards, and pilot topics.</li>
+        </ul>
+
+        <h2>2. Scope of services</h2>
+        <div class="session">
+          <h3>A. {{session_1_name}}</h3>
+          <p><strong>Date/time:</strong> {{session_1_date_time}}<br>
+          <strong>Duration:</strong> {{session_1_duration}}<br>
+          <strong>Format:</strong> {{session_1_format}}<br>
+          <strong>Audience:</strong> {{session_1_audience}}</p>
+          <ul>
+            <li>Orientation: AI in software development, opportunities, risks, and common anti-patterns.</li>
+            <li>Governance perspective: consistency, maintainability, reviewability, and standards.</li>
+            <li>Short demo: spec-driven and agent-assisted work with Spec Kitty and common tools.</li>
+            <li>Q&A and alignment with internal requirements.</li>
+          </ul>
+        </div>
+
+        <div class="session">
+          <h3>B. {{session_2_name}}</h3>
+          <p><strong>Date/time:</strong> {{session_2_date_time}}<br>
+          <strong>Duration:</strong> {{session_2_duration}}<br>
+          <strong>Format:</strong> {{session_2_format}}<br>
+          <strong>Ideal group size:</strong> {{session_2_group_size}}<br>
+          <strong>Recommended participants:</strong> {{session_2_participant_profile}}</p>
+          <ul>
+            <li>Short introduction and target picture for the day.</li>
+            <li>Installation and setup check: tooling, accounts, access, repository/project.</li>
+            <li>Guided Hello World run with a controlled workflow.</li>
+            <li>Work on a concrete use case or ticket with clear success criteria.</li>
+            <li>Joint evaluation and next steps.</li>
+          </ul>
+        </div>
+
+        <h2>3. Preconditions</h2>
+        <ul>
+          <li>Participants bring laptops and access to a suitable repository or project.</li>
+          <li>{{client_short_name}} provides 1-2 candidate use cases or tickets in advance, including Definition of Done.</li>
+          <li>Tooling, accounts, and access rights are checked before the session.</li>
+        </ul>
+
+        <h2>4. Price & billing</h2>
+        <div class="price">{{price}} EUR {{price_note}}</div>
+        <p>Included: preparation, delivery of the described session(s), short written summary, and {{travel_cost_rule}}.</p>
+        <p><strong>Billing:</strong> invoiced after delivery.<br>
+        <strong>Payment term:</strong> {{payment_term_days}} days from invoice date.<br>
+        <strong>Taxes:</strong> {{tax_note}}</p>
+
+        <h2>5. Next steps / timeline</h2>
+        <ul>
+          <li>{{client_contact}} aligns internally and responds by {{response_due_date}}.</li>
+          <li>Dates, location, technical setup, participant group, and use case are then confirmed.</li>
+          <li>Spec Kitty can provide a short preparation checklist for participants if needed.</li>
+        </ul>
+
+        <h2>6. Acceptance</h2>
+        <p>This offer can be accepted by email. A short reply referencing offer number {{offer_number}} is sufficient unless a procurement or contract workflow is required.</p>
+        <div class="signature-grid">
+          <div class="signature-line">Name</div>
+          <div class="signature-line">Date</div>
+          <div class="signature-line">Signature</div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
