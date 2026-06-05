@@ -11,7 +11,7 @@
 
 Spec Kitty
 Robert Douglass
-Spec Kitty / Robert Douglass
+Spec-Kitty.ai (Delaware, USA)
 Kontaktdaten laut Rechnung
 
 
@@ -19,7 +19,6 @@ E-Mail: contact@spec-kitty.ai
 Training: training@spec-kitty.ai
 Website: https://spec-kitty.ai
 
-**Steuerdaten:** USt-ID/Steuernummer laut Rechnung
 **Bank:** Bankverbindung laut Rechnung
 
 ## Empfänger

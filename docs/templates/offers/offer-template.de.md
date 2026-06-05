@@ -20,7 +20,6 @@ GitHub: https://github.com/Priivacy-ai/spec-kitty
 **Rechnungs-/Rechtsdaten:**
 {{rechtstraeger}}
 {{adresse}}
-{{ust_id_oder_steuernummer}}
 {{bankverbindung_falls_noetig}}
 
 ## 1. Ziel & Ergebnis
@@ -119,7 +118,7 @@ Unterschrift: _______________________
 - `{{kunde_unternehmen}}`
 - `{{kunde_kontakt}}`
 - `{{kunde_kurzname}}`
-- `{{rechtstraeger}}`, `{{adresse}}`, `{{ust_id_oder_steuernummer}}`
+- `{{rechtstraeger}}`, `{{adresse}}`
 - `{{session_*}}`
 - `{{preis}}`, `{{reisekostenregelung}}`, `{{steuerhinweis}}`
 - `{{rueckmeldung_bis}}`

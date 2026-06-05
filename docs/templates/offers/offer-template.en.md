@@ -20,7 +20,6 @@ GitHub: https://github.com/Priivacy-ai/spec-kitty
 **Billing/legal details:**
 {{legal_entity}}
 {{address}}
-{{vat_or_tax_id}}
 {{bank_details_if_needed}}
 
 ## 1. Goal & outcome
@@ -119,7 +118,7 @@ Signature: __________________________
 - `{{client_company}}`
 - `{{client_contact}}`
 - `{{client_short_name}}`
-- `{{legal_entity}}`, `{{address}}`, `{{vat_or_tax_id}}`
+- `{{legal_entity}}`, `{{address}}`
 - `{{session_*}}`
 - `{{price}}`, `{{travel_cost_rule}}`, `{{tax_note}}`
 - `{{response_due_date}}`

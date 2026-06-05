@@ -21,6 +21,7 @@ Use these consistently unless the legal or finance details change:
 | Field | Value |
 |---|---|
 | Brand | Spec Kitty |
+| Legal entity | Spec-Kitty.ai (Delaware, USA) |
 | Contact person | Robert Douglass |
 | General email | contact@spec-kitty.ai |
 | Training email | training@spec-kitty.ai |
@@ -28,7 +29,7 @@ Use these consistently unless the legal or finance details change:
 | Docs | https://docs.spec-kitty.ai |
 | GitHub | https://github.com/Priivacy-ai/spec-kitty |
 
-The current website and design refs do not include a postal address, legal entity, VAT ID, tax number, or bank details. Keep the placeholders in the template until finance/legal provides canonical values.
+The current website and design refs do not include a postal address or bank details. Keep those placeholders in the template until finance/legal provides canonical values.
 
 ## Generation workflow
 

@@ -19,7 +19,6 @@ E-Mail: contact@spec-kitty.ai
 Training: training@spec-kitty.ai
 Website: https://spec-kitty.ai
 
-**Steuerdaten:** {{ust_id_oder_steuernummer}}
 **Bank:** {{bankverbindung_optional}}
 
 ## Empfänger
