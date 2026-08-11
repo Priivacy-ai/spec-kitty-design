@@ -151,10 +151,13 @@
  * spec-kitty-saas assets/styles/spec-kitty-tokens.css). Falling Sky predates
  * that decision.
  *
- * The binaries remain in `packages/tokens/fonts/` -- they are not deleted, just
- * no longer declared here or published. Consumers load Inter themselves; the
- * font-family tokens below name it with a full fallback stack so a consumer that
- * loads nothing still renders sensibly.
+ * The binaries have been removed from the repository. This repo is **public**, so
+ * "unpublished but still in the tree" left 30 unlicensed commercial font files
+ * publicly downloadable -- the packaging was never what created that exposure.
+ * Removing them from HEAD does not rewrite history; that is tracked separately.
+ *
+ * Consumers load Inter themselves; the font-family tokens below name it with a
+ * full fallback stack so a consumer that loads nothing still renders sensibly.
  */
 
 /* ── Light mode override ─────────────────────────────────────────────────── */
