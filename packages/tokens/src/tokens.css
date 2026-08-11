@@ -72,13 +72,13 @@
   --sk-border-width-2:      2px;
 
   /* ── Typography — Families ───────── */
-  --sk-font-sans:           ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-  --sk-font-display:        'Falling Sky', ui-sans-serif, system-ui, sans-serif;
-  --sk-font-reference:      'Swansea', ui-sans-serif, system-ui, sans-serif;
-  --sk-font-condensed:      'Falling Sky Condensed', 'Falling Sky', ui-sans-serif, sans-serif;
-  --sk-font-extended:       'Falling Sky Extended', 'Falling Sky', ui-sans-serif, sans-serif;
-  --sk-font-outline:        'Falling Sky Outline', 'Falling Sky', ui-sans-serif, sans-serif;
-  --sk-font-boldplus:       'Falling Sky Boldplus', 'Falling Sky', ui-sans-serif, sans-serif;
+  --sk-font-sans:           Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --sk-font-display:        Inter, ui-sans-serif, system-ui, sans-serif;  /* was 'Falling Sky' (#725) */
+  --sk-font-reference:      Inter, ui-sans-serif, system-ui, sans-serif;  /* was 'Swansea' (#725) */
+  --sk-font-condensed:      Inter, ui-sans-serif, sans-serif;             /* no condensed cut in Inter */
+  --sk-font-extended:       Inter, ui-sans-serif, sans-serif;             /* no extended cut in Inter */
+  --sk-font-outline:        Inter, ui-sans-serif, sans-serif;             /* no outline cut in Inter */
+  --sk-font-boldplus:       Inter, ui-sans-serif, sans-serif;             /* use weight 800/900 instead */
   --sk-font-mono:           'JetBrains Mono', ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
   /* ── Typography — Scale ──────────── */
@@ -138,48 +138,24 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap');
 
 /* --- Falling Sky: upright weights --- */
-@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyLight-K2EX.otf') format('opentype');     font-weight: 300; font-style: normal;  font-display: swap; }
-@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSky-JKwK.otf') format('opentype');          font-weight: 400; font-style: normal;  font-display: swap; }
-@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyMedium-ved9.otf') format('opentype');    font-weight: 500; font-style: normal;  font-display: swap; }
-@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkySemibold-Bn7B.otf') format('opentype');  font-weight: 600; font-style: normal;  font-display: swap; }
-@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyBold-zemL.otf') format('opentype');      font-weight: 700; font-style: normal;  font-display: swap; }
-@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyExtrabold-redB.otf') format('opentype'); font-weight: 800; font-style: normal;  font-display: swap; }
-@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyBlack-GYXA.otf') format('opentype');     font-weight: 900; font-style: normal;  font-display: swap; }
-
-/* --- Falling Sky: oblique weights --- */
-@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyLightOblique-2q3o.otf') format('opentype');    font-weight: 300; font-style: italic; font-display: swap; }
-@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyOblique-n5XV.otf') format('opentype');         font-weight: 400; font-style: italic; font-display: swap; }
-@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyMediumOblique-leLD.otf') format('opentype');   font-weight: 500; font-style: italic; font-display: swap; }
-@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkySemiboldOblique-8q7M.otf') format('opentype'); font-weight: 600; font-style: italic; font-display: swap; }
-@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyBoldOblique-5zmv.otf') format('opentype');     font-weight: 700; font-style: italic; font-display: swap; }
-@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyExtraboldOblique-MwdP.otf') format('opentype'); font-weight: 800; font-style: italic; font-display: swap; }
-@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyBlackOblique-j37y.otf') format('opentype');    font-weight: 900; font-style: italic; font-display: swap; }
-
-/* --- Falling Sky: Bold-plus (a heavier-than-Bold display cut) --- */
-@font-face { font-family: 'Falling Sky Boldplus'; src: url('./fonts/FallingSkyBoldplus-6GZ1.otf') format('opentype');         font-weight: 800; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Falling Sky Boldplus'; src: url('./fonts/FallingSkyBoldplusOblique-yxmV.otf') format('opentype');  font-weight: 800; font-style: italic; font-display: swap; }
-
-/* --- Falling Sky: Condensed (use for narrow-column headlines) --- */
-@font-face { font-family: 'Falling Sky Condensed'; src: url('./fonts/FallingSkyCondensed-9qm2.otf') format('opentype');                   font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Falling Sky Condensed'; src: url('./fonts/FallingSkyCondensedOblique-leLw.otf') format('opentype');            font-weight: 400; font-style: italic; font-display: swap; }
-@font-face { font-family: 'Falling Sky Condensed Outline'; src: url('./fonts/FallingSkyCondensedOutline-n5XO.otf') format('opentype');             font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Falling Sky Condensed Outline'; src: url('./fonts/FallingSkyCondensedOutlineOblique-1qZv.otf') format('opentype');      font-weight: 400; font-style: italic; font-display: swap; }
-
-/* --- Falling Sky: Extended (use for wide hero numerals / splash) --- */
-@font-face { font-family: 'Falling Sky Extended'; src: url('./fonts/FallingSkyExtended-RLdE.otf') format('opentype');                     font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Falling Sky Extended'; src: url('./fonts/FallingSkyExtendedOblique-BnYw.otf') format('opentype');              font-weight: 400; font-style: italic; font-display: swap; }
-@font-face { font-family: 'Falling Sky Extended Outline'; src: url('./fonts/FallingSkyExtendedOutline-8qjn.otf') format('opentype');               font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Falling Sky Extended Outline'; src: url('./fonts/FallingSkyExtendedOutlineOblique-YBO2.otf') format('opentype');        font-weight: 400; font-style: italic; font-display: swap; }
-
-/* --- Falling Sky: Outline (display only, large sizes) --- */
-@font-face { font-family: 'Falling Sky Outline'; src: url('./fonts/FallingSkyOutline-1qZ0.otf') format('opentype');                       font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Falling Sky Outline'; src: url('./fonts/FallingSkyOutlineOblique-RLdV.otf') format('opentype');                font-weight: 400; font-style: italic; font-display: swap; }
-
-/* --- Swansea: secondary reference family --- */
-@font-face { font-family: 'Swansea'; src: url('./fonts/Swansea-q3pd.ttf') format('truetype');           font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Swansea'; src: url('./fonts/SwanseaItalic-AwqD.ttf') format('truetype');     font-weight: 400; font-style: italic; font-display: swap; }
-@font-face { font-family: 'Swansea'; src: url('./fonts/SwanseaBold-D0ox.ttf') format('truetype');       font-weight: 700; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Swansea'; src: url('./fonts/SwanseaBoldItalic-p3Dv.ttf') format('truetype'); font-weight: 700; font-style: italic; font-display: swap; }
+/* Vendored @font-face declarations removed (#725).
+ *
+ * This package previously shipped 30 Falling Sky and Swansea binaries with no
+ * licence file anywhere in the repository, and `files` published `fonts/**`.
+ * Redistributing commercial font binaries through a package registry is not
+ * something we can do on an unverified licence, and it blocked publishing this
+ * package at all.
+ *
+ * It was also the wrong typeface. Brand Book v1.1 specifies **Inter**, which is
+ * what the shipped TeamSpace product uses (see the typeface note in
+ * spec-kitty-saas assets/styles/spec-kitty-tokens.css). Falling Sky predates
+ * that decision.
+ *
+ * The binaries remain in `packages/tokens/fonts/` -- they are not deleted, just
+ * no longer declared here or published. Consumers load Inter themselves; the
+ * font-family tokens below name it with a full fallback stack so a consumer that
+ * loads nothing still renders sensibly.
+ */
 
 /* ── Light mode override ─────────────────────────────────────────────────── */
 /* Anchored on warm cream (page) → pure white (cards). */

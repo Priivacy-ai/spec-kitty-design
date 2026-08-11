@@ -4,6 +4,10 @@ Design tokens for the Spec Kitty design system — distributed as CSS custom pro
 
 ## Installation
 
+> **Not published yet.** `npm install @spec-kitty/tokens` will 404 until a registry is
+> chosen — see *Publishing* below. Until then, consume it by path from a checkout of this
+> repository, or by fetching `packages/tokens/dist/tokens.css`.
+
 ```bash
 npm install @spec-kitty/tokens
 ```
@@ -121,3 +125,51 @@ This package is excluded from the Stylelint `--sk-*` enforcement rule (it define
 ## Design Reference
 
 Token values are derived from `docs/architecture/decisions/ADR-003-addendum-token-values.md` and the design reference in `tmp/Spec Kitty Design System(1)/colors_and_type.css`.
+
+
+## Fonts
+
+This package does **not** ship font binaries and does not declare `@font-face`.
+
+It previously vendored 30 Falling Sky and Swansea `.otf`/`.ttf` files with no licence file
+anywhere in the repository, published via `files: ["fonts/**"]`. That is not something we can
+redistribute through a registry on an unverified licence, and it was the wrong typeface
+regardless: Brand Book v1.1 specifies **Inter**, which is what the shipped TeamSpace product
+uses.
+
+The font-family tokens name Inter with a full fallback stack, so a consumer that loads no
+webfont still renders sensibly. Loading Inter is the consumer's job. The binaries remain in
+`packages/tokens/fonts/` in the repository; they are simply not declared or published.
+
+Inter has no condensed, extended, outline or "boldplus" cut, so `--sk-font-condensed`,
+`--sk-font-extended`, `--sk-font-outline` and `--sk-font-boldplus` all resolve to Inter. They
+are kept as names so consumers do not break, but they no longer express a distinct typeface.
+Use weight (800/900) where `boldplus` was doing display work.
+
+## Publishing
+
+The package is publishable — `npm pack --dry-run` produces 7 files with no binaries beyond
+the logo assets — but **no registry is configured yet**, and that is a deliberate open
+decision rather than an oversight:
+
+- **GitHub Packages is not available under this name.** `npm.pkg.github.com` requires the
+  package scope to match the repository owner. The owner is `Priivacy-ai`; the scope is
+  `@spec-kitty`. Publishing there would mean renaming to `@priivacy-ai/tokens`.
+- **Public npm** works under `@spec-kitty` but makes the design tokens public. That is an
+  outward-facing decision, not an engineering one.
+
+Set `publishConfig.registry` once that is settled. Nothing else is blocking.
+
+## Relationship to the shipped TeamSpace token layer
+
+`spec-kitty-saas` has its own 590-line token layer at `assets/styles/spec-kitty-tokens.css`,
+guarded by `test_design_token_adoption.py`. **It is not the same architecture as this
+package** and reconciling them is tracked separately on `spec-kitty-saas#725`:
+
+| | this package | spec-kitty-saas |
+|---|---|---|
+| Values | hex (`--sk-surface-page: #F8F5EC`) | HSL triplets (`--sk-surface-hsl: 45 20% 98%`) consumed as `hsl(var(--sk-*-hsl))` so Tailwind/DaisyUI can compose them |
+| Base mode | **dark**, with `:root[data-theme="light"]` override | **light**, with `[data-theme="dark"]` override |
+
+Note that #725 originally asserted the opposite of that last row. It is worth measuring
+before acting on it.
