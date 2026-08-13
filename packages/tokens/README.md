@@ -121,3 +121,58 @@ This package is excluded from the Stylelint `--sk-*` enforcement rule (it define
 ## Design Reference
 
 Token values are derived from `docs/architecture/decisions/ADR-003-addendum-token-values.md` and the design reference in `tmp/Spec Kitty Design System(1)/colors_and_type.css`.
+
+
+## Fonts
+
+This package does **not** ship font binaries and does not declare `@font-face`.
+
+It previously vendored 30 Falling Sky and Swansea `.otf`/`.ttf` files with no licence file
+anywhere in the repository, published via `files: ["fonts/**"]`. That is not something we can
+redistribute through a registry on an unverified licence, and it was the wrong typeface
+regardless: Brand Book v1.1 specifies **Inter**, which is what the shipped TeamSpace product
+uses.
+
+The font-family tokens name Inter with a full fallback stack, so a consumer that loads no
+webfont still renders sensibly. Loading Inter is the consumer's job.
+
+The binaries have also been **removed from the repository**. This repo is public, so leaving
+them in the tree while merely un-publishing them kept 30 unlicensed commercial font files
+publicly downloadable — the packaging was never what created that exposure. Removing them
+from `HEAD` does not rewrite history, which is a separate problem.
+
+Inter has no condensed, extended, outline or "boldplus" cut, so `--sk-font-condensed`,
+`--sk-font-extended`, `--sk-font-outline` and `--sk-font-boldplus` all resolve to Inter. They
+are kept as names so consumers do not break, but they no longer express a distinct typeface.
+Use weight (800/900) where `boldplus` was doing display work.
+
+## Publishing
+
+Published to **public npm** as `@spec-kitty/tokens`.
+
+```bash
+npm publish   # publishConfig pins registry + public access
+```
+
+Public npm rather than GitHub Packages, for a reason worth keeping: **`Priivacy-ai/spec-kitty`
+is a public, open-source repository.** A private-registry dependency would break `npm install`
+for every external contributor, which defeats the point of core being open. GitHub Packages
+also could not host this name — `npm.pkg.github.com` requires the scope to match the
+repository owner (`Priivacy-ai` vs `@spec-kitty`), so it would have forced a rename.
+
+There is nothing to protect by keeping it private: this repository is already public, and
+`spec-kitty-cli` already ships on public PyPI.
+
+## Relationship to the shipped TeamSpace token layer
+
+`spec-kitty-saas` has its own 590-line token layer at `assets/styles/spec-kitty-tokens.css`,
+guarded by `test_design_token_adoption.py`. **It is not the same architecture as this
+package** and reconciling them is tracked separately on `spec-kitty-saas#725`:
+
+| | this package | spec-kitty-saas |
+|---|---|---|
+| Values | hex (`--sk-surface-page: #F8F5EC`) | HSL triplets (`--sk-surface-hsl: 45 20% 98%`) consumed as `hsl(var(--sk-*-hsl))` so Tailwind/DaisyUI can compose them |
+| Base mode | **dark**, with `:root[data-theme="light"]` override | **light**, with `[data-theme="dark"]` override |
+
+Note that #725 originally asserted the opposite of that last row. It is worth measuring
+before acting on it.

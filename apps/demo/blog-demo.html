@@ -11,7 +11,7 @@
     - Tokens CSS:  ../../packages/tokens/dist/tokens.css
     - Component CSS: ../../packages/html-js/src/<component>/sk-<component>.css
 
-  Note: @font-face declarations in tokens.css use relative paths to ./fonts/
+  Note: tokens.css no longer declares @font-face; Inter is the consumer's to load
   (relative to tokens.css itself). Fonts load correctly when served over HTTP.
   When opened via file://, Chrome may block local font loading — use a local
   static file server (e.g. npx serve .) for full font fidelity.
@@ -24,7 +24,7 @@
   <meta name="description" content="Spec Kitty design system demo — blog layout showcasing tokens, card variants, navigation, and typography." />
   <link rel="icon" type="image/png" href="../../packages/tokens/assets/favicon.png" />
 
-  <!-- Design system tokens (includes @font-face for Falling Sky, Swansea, JetBrains Mono) -->
+  <!-- Design system tokens (font-family tokens resolve to Inter; JetBrains Mono via @import) -->
   <link rel="stylesheet" href="../../packages/tokens/dist/tokens.css" />
 
   <!-- Component CSS files — loaded explicitly since this is plain HTML -->
